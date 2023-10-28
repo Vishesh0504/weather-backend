@@ -19,9 +19,9 @@ app.use(cors());
         });
         console.log("Connected to MongoDB");
 
-        const Date = new Date();
-        const date=Date.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
-        const time =Date.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+        const date_ = new Date();
+        const date=date_ate.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
+        const time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
 
 
         // Define the /api/add_product route for adding products
