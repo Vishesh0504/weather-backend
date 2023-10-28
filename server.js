@@ -77,8 +77,8 @@ app.use(cors());
 
 
         // Start your Express server
-        app.listen(2000, () => {
-            console.log("Connected to server at 2000");
+        app.listen(5000, () => {
+            console.log("Connected to server at 5000");
         });
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
