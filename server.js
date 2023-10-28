@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const Data = require("./data"); // Import the Product model
+const Data = require("./data"); // Import the Data model
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -44,6 +44,12 @@ app.use(cors());
                 });
             }
         });
+
+
+        app.get('/', (req, res) => {
+            res.send('Hey this is my API running 🥳')
+        });
+
         app.get("/api/get_data", async (req, res) => {
             try {
                 // Use the `Data` model to find all products in the database
