@@ -20,7 +20,7 @@ app.use(cors());
         console.log("Connected to MongoDB");
 
         const date_ = new Date();
-        const date=date_ate.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
+        const date=date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
         const time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
 
 
