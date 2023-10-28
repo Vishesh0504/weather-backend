@@ -19,6 +19,14 @@ app.use(cors());
         });
         console.log("Connected to MongoDB");
 
+        const date = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
+        const time = date.toLocaleTimeString("en-US", {timeZone: "Asia/Kolkata", hour: "numeric", minute: "numeric", second: "numeric"});
+        const dayOfMonth = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+
+        const dateStr = dayOfMonth + "-" + (month + 1) + "-" + year;
+
         // Define the /api/add_product route for adding products
         app.post("/data", async (req, res) => {
             console.log("Result", req.body);
@@ -31,7 +39,8 @@ app.use(cors());
                 altitude: req.body.altitude,
                 fl:req.body.feelsLike,
                 dp:req.body.dewPoint,
-                time: new Date()
+                time: time,
+                date: dateStr
             });
             console.log(data);
             try {

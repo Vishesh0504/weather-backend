@@ -30,6 +30,10 @@ let dataSchema=new mongoose.Schema({
     'time':{
         required:true,
         type: Date
+    },
+    'date':{
+        required:true,
+        type: Date
     }
 }
 );
