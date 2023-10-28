@@ -21,7 +21,7 @@ app.use(cors());
 
         const date_ = new Date();
         const date=date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
-        const time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+        const time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
 
 
         // Define the /api/add_product route for adding products
@@ -38,6 +38,7 @@ app.use(cors());
                 dp:req.body.dewPoint,
                 time: time,
                 date: date
+
             });
             console.log(data);
             try {

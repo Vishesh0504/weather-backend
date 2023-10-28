@@ -35,6 +35,7 @@ let dataSchema=new mongoose.Schema({
         required:true,
         type: String
     }
+
 }
 );
 module.exports =mongoose.model("node_js",dataSchema)
