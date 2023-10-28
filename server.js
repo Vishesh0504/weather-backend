@@ -20,7 +20,7 @@ app.use(cors());
         console.log("Connected to MongoDB");
 
         const date = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
-        const time = date.toLocaleTimeString("en-US", {timeZone: "Asia/Kolkata", hour: "numeric", minute: "numeric", second: "numeric"});
+        const time = date.toLocaleString("en-US", {timeZone: "Asia/Kolkata", hour: "numeric", minute: "numeric"});
         const dayOfMonth = date.getDate();
         const month = date.getMonth();
         const year = date.getFullYear();
@@ -62,7 +62,7 @@ app.use(cors());
         app.get("/api/get_data", async (req, res) => {
             try {
                 // Use the `Data` model to find all products in the database
-                const data = await Data.find().sort({ time: -1 }).limit(500); // Use Data.find() to retrieve all products
+                const data = await Data.find().sort({ time: -1 }).limit(240); // Use Data.find() to retrieve all products
 
                 res.status(200).json(data);
             } catch (error) {
