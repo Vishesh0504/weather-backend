@@ -19,13 +19,10 @@ app.use(cors());
         });
         console.log("Connected to MongoDB");
 
-        const date = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
-        const time = date.toLocaleString("en-US", {timeZone: "Asia/Kolkata", hour: "numeric", minute: "numeric"});
-        const dayOfMonth = date.getDate();
-        const month = date.getMonth();
-        const year = date.getFullYear();
+        const Date = new Date();
+        const date=Date.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
+        const time =Date.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
 
-        const dateStr = dayOfMonth + "-" + (month + 1) + "-" + year;
 
         // Define the /api/add_product route for adding products
         app.post("/data", async (req, res) => {
@@ -40,7 +37,7 @@ app.use(cors());
                 fl:req.body.feelsLike,
                 dp:req.body.dewPoint,
                 time: time,
-                date: dateStr
+                date: date
             });
             console.log(data);
             try {
