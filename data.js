@@ -29,11 +29,11 @@ let dataSchema=new mongoose.Schema({
     },
     'time':{
         required:true,
-        type: Date
+        type: String
     },
     'date':{
         required:true,
-        type: Date
+        type: String
     }
 }
 );
