@@ -26,7 +26,7 @@ app.use(cors());
             time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         }
         
-        setInterval(updateTime,590000);
+        setInterval(updateTime,59000);
         // Define the /api/add_product route for adding products
         app.post("/data", async (req, res) => {
             console.log("Result", req.body);
