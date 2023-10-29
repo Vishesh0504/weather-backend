@@ -18,10 +18,10 @@ app.use(cors());
             useUnifiedTopology: true
         });
         console.log("Connected to MongoDB");
-        const time;
-        const date;
+        let time;
+        let date;
         function updateTime(){
-            const date_ = new Date();
+            let date_ = new Date();
             date =date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
             time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         }
