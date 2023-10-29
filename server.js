@@ -18,8 +18,9 @@ app.use(cors());
             useUnifiedTopology: true
         });
         console.log("Connected to MongoDB");
-        let time;
-        let date;
+        let date_ = new Date();
+        let date =date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
+        let time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         function updateTime(){
             let date_ = new Date();
             date =date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
