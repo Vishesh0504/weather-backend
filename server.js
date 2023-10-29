@@ -18,12 +18,13 @@ app.use(cors());
             useUnifiedTopology: true
         });
         console.log("Connected to MongoDB");
-
-        const date_ = new Date();
-        const date=date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
-        const time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
-
-
+        function updateTime(){
+            const date_ = new Date();
+            const date=date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
+            const time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
+        }
+        
+        setInterval(updateTime,590000);
         // Define the /api/add_product route for adding products
         app.post("/data", async (req, res) => {
             console.log("Result", req.body);
