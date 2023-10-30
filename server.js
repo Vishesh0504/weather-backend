@@ -26,7 +26,7 @@ app.use(cors());
             date =date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
             time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         }
-        
+
         setInterval(updateTime,59000);
         // Define the /api/add_product route for adding products
         app.post("/data", async (req, res) => {
@@ -64,7 +64,7 @@ app.use(cors());
         app.get("/api/get_data", async (req, res) => {
             try {
                 // Use the `Data` model to find all products in the database
-                const data = await Data.find().sort({ time: -1 }).limit(240); // Use Data.find() to retrieve all products
+                const data = await Data.find().sort({ "time": -1 }).limit(240); // Use Data.find() to retrieve all products
 
                 res.status(200).json(data);
             } catch (error) {
@@ -78,7 +78,7 @@ app.use(cors());
         // Route to get the most recent sensor data
         app.get('/api/mostRecentSensorData', async (req, res) => {
         try {
-            const mostRecentData = await Data.find().sort({ time: -1 }).limit(1);
+            const mostRecentData = await Data.find().sort({ "time": -1 }).limit(1);
             res.json(mostRecentData);
         } catch (error) {
             console.error('Error fetching most recent sensor data:', error);
