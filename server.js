@@ -2,7 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const Data = require("./data"); // Import the Data model
+const bodyParser = require('body-parser');
 
+
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
