@@ -34,6 +34,10 @@ let dataSchema=new mongoose.Schema({
     'date':{
         required:true,
         type: String
+    },
+    'timeStamp':{
+        required:true,
+        type: Date
     }
 
 }

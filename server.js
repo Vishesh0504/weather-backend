@@ -41,7 +41,8 @@ app.use(cors());
                 fl:req.body.feelsLike,
                 dp:req.body.dewPoint,
                 time: time,
-                date: date
+                date: date,
+                timeStamp: date_
 
             });
             console.log(data);
