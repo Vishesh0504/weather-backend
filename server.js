@@ -57,6 +57,7 @@ app.use(cors());
 
         app.post("/getDate",async (req,res)=>{
             let date = req.body.date;
+            console.log(req.body);
             let data = await Data.find({date:date});
             let filtered = {
                 temp:data.map((item)=>item.temp).reduce((a,b)=>a+b,0)/data.length,
