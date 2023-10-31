@@ -22,17 +22,15 @@ app.use(cors());
         let date =date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
         let time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         function updateTime(){
-            let date_ = new Date();
+            date_ = new Date();
             date =date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
             time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         }
 
         setInterval(updateTime,59000);
-        // Define the /api/add_product route for adding products
         app.post("/data", async (req, res) => {
             console.log("Result", req.body);
 
-            // Create a new instance of the Product model using the dataSchema
             const data = new Data({
                 temp: req.body.temp,
                 humidity: req.body.humidity,
