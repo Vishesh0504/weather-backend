@@ -63,12 +63,12 @@ app.use(cors());
             console.log(req.body);
             let data = await Data.find({date:date});
             let filtered = {
-                temp:data.map((item)=>item.temp).reduce((a,b)=>a+b,0)/data.length,
-                humidity:data.map((item)=>item.humidity).reduce((a,b)=>a+b,0)/data.length,
-                pressure:data.map((item)=>item.pressure).reduce((a,b)=>a+b,0)/data.length,
-                altitude:data.map((item)=>item.altitude).reduce((a,b)=>a+b,0)/data.length,
-                fl:data.map((item)=>item.fl).reduce((a,b)=>a+b,0)/data.length,
-                dp:data.map((item)=>item.dp).reduce((a,b)=>a+b,0)/data.length,
+                temp:(data.map((item)=>item.temp).reduce((a,b)=>a+b,0)/data.length).toFixed(2),
+                humidity:(data.map((item)=>item.humidity).reduce((a,b)=>a+b,0)/data.length).toFixed(2),
+                pressure:(data.map((item)=>item.pressure).reduce((a,b)=>a+b,0)/data.length).toFixed(2),
+                altitude:(data.map((item)=>item.altitude).reduce((a,b)=>a+b,0)/data.length).toFixed(2),
+                fl:(data.map((item)=>item.fl).reduce((a,b)=>a+b,0)/data.length).toFixed(2),
+                dp:(data.map((item)=>item.dp).reduce((a,b)=>a+b,0)/data.length).toFixed(2),
             }
             res.status(200).json(filtered);
         });
