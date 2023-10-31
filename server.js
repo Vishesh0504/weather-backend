@@ -23,11 +23,11 @@ app.use(cors());
         let time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         function updateTime(){
             date_ = new Date();
-            date =date_.toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
-            time =date_.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
+            date =new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
+            time =new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false});
         }
 
-        setInterval(updateTime,59000);
+        setInterval(updateTime,60000);
         app.post("/data", async (req, res) => {
             console.log("Result", req.body);
 
@@ -72,7 +72,8 @@ app.use(cors());
                 });
             }
         });
-        // ...
+
+
 
         // Route to get the most recent sensor data
         app.get('/api/mostRecentSensorData', async (req, res) => {
