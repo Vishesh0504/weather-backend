@@ -29,7 +29,7 @@ app.use(cors());
 
         setInterval(updateTime,60000);
         app.post("/data", async (req, res) => {
-            console.log("Result", req.body);
+            // console.log("Result", req.body);
 
             const data = new Data({
                 temp: req.body.temp,
@@ -55,6 +55,20 @@ app.use(cors());
             }
         });
 
+        app.post("/getDate",async (req,res)=>{
+            let date = req.body.date;
+            let data = await Data.find({date:date});
+            let filtered = {
+                temp:data.map((item)=>item.temp).reduce((a,b)=>a+b,0)/data.length,
+                humidity:data.map((item)=>item.humidity).reduce((a,b)=>a+b,0)/data.length,
+                pressure:data.map((item)=>item.pressure).reduce((a,b)=>a+b,0)/data.length,
+                altitude:data.map((item)=>item.altitude).reduce((a,b)=>a+b,0)/data.length,
+                fl:data.map((item)=>item.fl).reduce((a,b)=>a+b,0)/data.length,
+                dp:data.map((item)=>item.dp).reduce((a,b)=>a+b,0)/data.length,
+            }
+            res.status(200).json(filtered);
+        });
+
 
         app.get('/', (req, res) => {
             res.send('Hey this is my API running 🥳')
@@ -63,7 +77,7 @@ app.use(cors());
         app.get("/api/get_data", async (req, res) => {
             try {
                 // Use the `Data` model to find all products in the database
-                const data = await Data.find().sort({ "timeStamp": -1 }).limit(240); // Use Data.find() to retrieve all products
+                const data = await Data.find().sort({ "timeStamp": -1 }).limit(60); // Use Data.find() to retrieve all products
 
                 res.status(200).json(data);
             } catch (error) {
